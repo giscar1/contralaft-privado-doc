@@ -126,9 +126,9 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('"PLAN"')
+           where  id = object_id('PLANCONTRALAFT')
             and   type = 'U')
-   drop table "PLAN"
+   drop table PLANCONTRALAFT
 go
 
 if exists (select 1
@@ -272,18 +272,19 @@ ON [PRIMARY]
 go
 
 /*==============================================================*/
-/* Table: "PLAN"                                                */
+/* Table: PLANCONTRALAFT                                        */
 /*==============================================================*/
-create table "PLAN" (
+create table PLANCONTRALAFT (
    N_COD_PLAN           int                  identity(1,1),
    C_NOM_PLAN           varchar(300)         null,
    C_DES_DETALLE        varchar(1000)        null,
    N_COD_VERSION        int                  null,
    N_COD_ESTADO         int                  null,
    C_USU_REGISTRO       varchar(20)          null,
-   D_FECHA_REGISTRO     datetime             null,
+   D_FEC_REGISTRO       datetime             null,
    C_USU_MODIFICACION   varchar(20)          null,
-   D_FECHA_MODIFICACION datetime             null,
+   D_FEC_MODIFICACION   datetime             null,
+   N_FL_ACTIVO          int                  null,
    constraint PK_PLAN primary key (N_COD_PLAN)
 )
 go
@@ -331,7 +332,7 @@ go
 
 alter table ACCION
    add constraint FK_ACCION_REFERENCE_PLAN foreign key (N_COD_PLAN)
-      references "PLAN" (N_COD_PLAN)
+      references PLANCONTRALAFT (N_COD_PLAN)
 go
 
 alter table INDICADOR
