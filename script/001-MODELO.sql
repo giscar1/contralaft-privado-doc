@@ -155,7 +155,6 @@ create table ACCION (
    C_DES_NOMBRE         varchar(500)         null,
    C_DES_DESCRIPCION    varchar(5000)        null,
    N_FL_ACTIVO          int                  null,
-   C_COD_ESTADO         varchar(500)         null,
    C_USU_REGISTRO       varchar(20)          null,
    D_FEC_REGISTRO       datetime             null,
    C_USU_MODIFICACION   varchar(20)          null,
@@ -190,8 +189,8 @@ go
 create table INDICADOR (
    N_COD_INDICADOR      int                  identity(1,1),
    N_COD_ACCION         int                  null,
+   C_DES_NOMBRE         varchar(1000)        null,
    C_DES_DETALLE        varchar(5000)        null,
-   N_COD_ESTADO         int                  null,
    N_FL_ACTIVO          int                  null,
    C_USU_REGISTRO       varchar(20)          null,
    D_FEC_REGISTRO       datetime             null,
