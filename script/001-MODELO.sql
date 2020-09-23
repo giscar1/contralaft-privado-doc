@@ -157,7 +157,7 @@ create table ACCION (
    N_FL_ACTIVO          int                  null,
    C_COD_ESTADO         varchar(500)         null,
    C_USU_REGISTRO       varchar(20)          null,
-   D_FEC_REGISRO        datetime             null,
+   D_FEC_REGISTRO       datetime             null,
    C_USU_MODIFICACION   varchar(20)          null,
    D_FEC_MODIFICACION   datetime             null,
    constraint PK_ACCION primary key (N_COD_ACCION)
