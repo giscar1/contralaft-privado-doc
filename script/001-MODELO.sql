@@ -14,16 +14,16 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PRIVADO.INDICADORENTIDAD') and o.name = 'FK_INDICADO_REFERENCE_ENTIDAD')
+   where r.fkeyid = object_id('PRIVADO.INDICADORENTIDAD') and o.name = 'FK_INDICADO_REFERENCE_INDICADO')
 alter table PRIVADO.INDICADORENTIDAD
-   drop constraint FK_INDICADO_REFERENCE_ENTIDAD
+   drop constraint FK_INDICADO_REFERENCE_INDICADO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('PRIVADO.INDICADORENTIDAD') and o.name = 'FK_INDICADO_REFERENCE_INDICADO')
+   where r.fkeyid = object_id('PRIVADO.INDICADORENTIDAD') and o.name = 'FK_INDICADO_REFERENCE_ENTIDAD')
 alter table PRIVADO.INDICADORENTIDAD
-   drop constraint FK_INDICADO_REFERENCE_INDICADO
+   drop constraint FK_INDICADO_REFERENCE_ENTIDAD
 go
 
 if exists (select 1
@@ -215,7 +215,7 @@ go
 /* Table: INDICADORENTIDAD                                      */
 /*==============================================================*/
 create table PRIVADO.INDICADORENTIDAD (
-   N_COD_INDICADOR      int                  identity(1,1),
+   N_COD_INDICADOR      int                  null,
    N_COD_ENTIDAD        int                  null,
    N_COD_ESTADO         int                  null,
    N_FL_ACTIVO          int                  null
@@ -349,13 +349,13 @@ alter table PRIVADO.INDICADOR
 go
 
 alter table PRIVADO.INDICADORENTIDAD
-   add constraint FK_INDICADO_REFERENCE_ENTIDAD foreign key (N_COD_ENTIDAD)
-      references PRIVADO.ENTIDAD (N_COD_ENTIDAD)
+   add constraint FK_INDICADO_REFERENCE_INDICADO foreign key (N_COD_INDICADOR)
+      references PRIVADO.INDICADOR (N_COD_INDICADOR)
 go
 
 alter table PRIVADO.INDICADORENTIDAD
-   add constraint FK_INDICADO_REFERENCE_INDICADO foreign key (N_COD_INDICADOR)
-      references PRIVADO.INDICADOR (N_COD_INDICADOR)
+   add constraint FK_INDICADO_REFERENCE_ENTIDAD foreign key (N_COD_ENTIDAD)
+      references PRIVADO.ENTIDAD (N_COD_ENTIDAD)
 go
 
 alter table PRIVADO.MENUROL
