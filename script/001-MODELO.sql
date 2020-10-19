@@ -42,6 +42,13 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('PRIVADO.META') and o.name = 'FK_META_REFERENCE_INDICADO')
+alter table PRIVADO.META
+   drop constraint FK_META_REFERENCE_INDICADO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('PRIVADO.PERFILROL') and o.name = 'FK_PERFILRO_REFERENCE_PERFIL')
 alter table PRIVADO.PERFILROL
    drop constraint FK_PERFILRO_REFERENCE_PERFIL
@@ -108,6 +115,13 @@ if exists (select 1
            where  id = object_id('PRIVADO.MENUROL')
             and   type = 'U')
    drop table PRIVADO.MENUROL
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('PRIVADO.META')
+            and   type = 'U')
+   drop table PRIVADO.META
 go
 
 if exists (select 1
@@ -215,10 +229,11 @@ go
 /* Table: INDICADORENTIDAD                                      */
 /*==============================================================*/
 create table PRIVADO.INDICADORENTIDAD (
-   N_COD_INDICADOR      int                  null,
-   N_COD_ENTIDAD        int                  null,
+   N_COD_INDICADOR      int                  not null,
+   N_COD_ENTIDAD        int                  not null,
    N_COD_ESTADO         int                  null,
-   N_FL_ACTIVO          int                  null
+   N_FL_ACTIVO          int                  not null,
+   constraint PK_INDICADORENTIDAD primary key (N_COD_INDICADOR, N_COD_ENTIDAD)
 )
 ON [PRIMARY]
 go
@@ -248,6 +263,29 @@ create table PRIVADO.MENUROL (
    N_FL_ACTIVO          int                  null
 )
 ON [PRIMARY]
+go
+
+/*==============================================================*/
+/* Table: META                                                  */
+/*==============================================================*/
+create table PRIVADO.META (
+   N_COD_META           int                  identity,
+   N_COD_INDICADOR      int                  null,
+   N_COD_ENTIDAD        int                  null,
+   N_NUM_BASE           int                  null,
+   C_MED_VERIFICACION   varchar(1000)        null,
+   C_DET_DESCRIPCION    varchar(4000)        null,
+   C_COD_DOCUMENTO      varchar(300)         null,
+   C_COD_ANIO           varchar(4)           null,
+   N_FL_ACTIVO          int                  null,
+   N_COD_ESTADO         int                  null,
+   N_COD_VERSION        int                  null,
+   C_USU_REGISTRO       varchar(50)          null,
+   D_FEC_REGISTRO       datetime             null,
+   C_USU_MODIFICACION   varchar(50)          null,
+   D_FEC_MODIFICACION   datetime             null,
+   constraint PK_META primary key (N_COD_META)
+)
 go
 
 /*==============================================================*/
@@ -366,6 +404,11 @@ go
 alter table PRIVADO.MENUROL
    add constraint FK_MENUROL_REFERENCE_ROL foreign key (N_COD_ROL)
       references PRIVADO.ROL (N_COD_ROL)
+go
+
+alter table PRIVADO.META
+   add constraint FK_META_REFERENCE_INDICADO foreign key (N_COD_INDICADOR, N_COD_ENTIDAD)
+      references PRIVADO.INDICADORENTIDAD (N_COD_INDICADOR, N_COD_ENTIDAD)
 go
 
 alter table PRIVADO.PERFILROL
