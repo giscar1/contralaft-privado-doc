@@ -279,7 +279,6 @@ create table PRIVADO.META (
    C_COD_DOCUMENTO      varchar(300)         null,
    N_FL_ACTIVO          int                  null,
    N_COD_ESTADO         int                  null,
-   N_COD_VERSION        int                  null,
    C_USU_REGISTRO       varchar(50)          null,
    D_FEC_REGISTRO       datetime             null,
    C_USU_MODIFICACION   varchar(50)          null,
