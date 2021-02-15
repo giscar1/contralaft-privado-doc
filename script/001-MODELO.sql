@@ -330,6 +330,7 @@ create table PRIVADO.PLANCONTRALAFT (
    C_USU_MODIFICACION   varchar(20)          null,
    D_FEC_MODIFICACION   datetime             null,
    N_FL_ACTIVO          int                  null,
+   N_COD_VIGENTE        int                  null,
    constraint PK_PLAN primary key (N_COD_PLAN)
 )
 go
