@@ -209,7 +209,7 @@ create table PRIVADO.INDICADOR (
    C_USU_REGISTRO       varchar(20)          null,
    D_FEC_REGISTRO       datetime             null,
    C_USU_MODIFICACION   varchar(20)          null,
-   D_FECHA_MODIFICACION datetime             null,
+   D_FEC_MODIFICACION datetime             null,
    C_COD_ANHO           varchar(4)           null,
    constraint PK_INDICADOR primary key (N_COD_INDICADOR)
          WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
