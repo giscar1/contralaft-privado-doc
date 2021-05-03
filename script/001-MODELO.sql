@@ -268,6 +268,7 @@ create table PRIVADO.META (
    C_MED_VERIFICACION   varchar(1000)        null,
    C_DET_DESCRIPCION    varchar(4000)        null,
    C_COD_DOCUMENTO      varchar(300)         null,
+   C_COD_EXTENSION      varchar(10)          null,
    N_FL_ACTIVO          int                  null,
    N_COD_ESTADO         int                  null,
    C_USU_REGISTRO       varchar(50)          null,
