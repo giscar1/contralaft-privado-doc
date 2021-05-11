@@ -275,6 +275,7 @@ create table PRIVADO.META (
    D_FEC_REGISTRO       datetime             null,
    C_USU_MODIFICACION   varchar(50)          null,
    D_FEC_MODIFICACION   datetime             null,
+   N_COD_ESTADO_UIF     int                  null,
    constraint PK_META primary key (N_COD_META)
 )
 go
