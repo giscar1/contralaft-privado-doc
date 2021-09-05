@@ -356,6 +356,7 @@ create table PRIVADO.USUARIO (
    C_DET_CODIGO         varchar(100)         null,
    C_DET_NOMBRE         varchar(300)         null,
    C_DET_CONTRA         varchar(500)         null,
+   C_VER_CONTRA         varchar(30)         null,
    C_DET_EMAIL          varchar(300)         null,
    C_COD_DOCUMENTO      varchar(500)         null,
    C_COD_EXTENSION      varchar(10)          null,
