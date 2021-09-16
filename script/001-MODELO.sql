@@ -359,6 +359,7 @@ create table PRIVADO.USUARIO (
    C_VER_CONTRA         varchar(30)         null,
    C_DET_EMAIL          varchar(300)         null,
    C_COD_DOCUMENTO      varchar(500)         null,
+   C_COD_DOCUMENTOINHA  varchar(500)         null,
    C_COD_EXTENSION      varchar(10)          null,
    N_FL_ACTIVO          int                  null,
    D_FEC_REGISTRO       datetime             null,
