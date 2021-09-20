@@ -367,7 +367,6 @@ create table PRIVADO.USUARIO (
    C_USU_REGISTRO       varchar(100)         null,
    D_FEC_MODIFICACION   datetime             null,
    C_USU_MODIFICACION   varchar(100)         null,
-   C_COD_DOC_ELIMINA    varchar(500)         null,
    constraint PK_USUARIO primary key (N_COD_ID)
 )
 ON [PRIMARY]
